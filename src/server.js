@@ -8,7 +8,7 @@ const cors = require("cors");
 const app = express();
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || "https://vooshchatbot-backend.onrender.com/";
 app.use(
   cors({
     origin: [
@@ -18,6 +18,9 @@ app.use(
     credentials: true,
   })
 );
+app.get("/", (req, res) => {
+  res.send("RAG Chat Backend is running!");
+});
 (async () => {
   try {
     await initRedis(); // connect redis (or Upstash)

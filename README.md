@@ -62,3 +62,13 @@ git clone https://github.com/primehta17/vooshchatbot-backend.git
 cd vooshchatbot-backend
 npm install
 cp .env.example .env
+
+Running Locally
+npm run dev   # with nodemon
+# OR
+npm start
+
+
+Backend runs at: http://localhost:3001
+
+Ensure Redis & Qdrant are running before starting.
