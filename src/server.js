@@ -8,13 +8,11 @@ const cors = require("cors");
 const app = express();
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || "https://vooshchatbot-backend.onrender.com/";
+const PORT = process.env.PORT || "https://vooshchatbot-backend.onrender.com";
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://vooshchatbot-ul1d.onrender.com/",
-    ], // frontend origin
+    origin: ["http://localhost:3000", "https://vooshchatbot-ul1d.onrender.com"], // frontend origin
+    methods: ["GET", "POST"],
     credentials: true,
   })
 );
