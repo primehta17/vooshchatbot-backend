@@ -6,49 +6,11 @@ const JINA_API_URL = process.env.JINA_EMBEDDINGS_API_URL;
 const JINA_API_KEY = process.env.JINA_API_KEY;
 const MODEL = process.env.JINA_MODEL || "jina-embeddings-v3";
 
-// async function embedText(text) {
-//   if (!text) throw new Error("embedText: no text");
-
-//   if (!JINA_API_URL) {
-//     // Mock vector for local testing (dimension 768)
-//     return Array(768).fill(0);
-//   }
-
-//   const body = {
-//     model: MODEL,
-//     input: text,
-//   };
-
-//   const resp = await fetch(JINA_API_URL, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: JINA_API_KEY ? `Bearer ${JINA_API_KEY}` : "",
-//     },
-//     body: JSON.stringify(body),
-//   });
-
-//   if (!resp.ok) {
-//     const t = await resp.text();
-//     throw new Error(`Embedding API error: ${resp.status} ${t}`);
-//   }
-
-//   const data = await resp.json();
-//   // adapt to Jina response shape
-//   if (data.embedding) return data.embedding;
-//   if (Array.isArray(data.embeddings) && data.embeddings.length)
-//     return data.embeddings[0];
-//   if (data.results && data.results[0] && data.results[0].embedding)
-//     return data.results[0].embedding;
-
-//   throw new Error("Unexpected embedding response format");
-// }
-
 async function embedText(text) {
   if (!text) throw new Error("No text provided for embedding");
 
   if (!JINA_API_URL) {
-    console.warn("JINA_API_URL not set — returning mock embedding");
+    console.warn("JINA_API_URL not set - returning mock embedding");
     return Array(768).fill(0);
   }
 

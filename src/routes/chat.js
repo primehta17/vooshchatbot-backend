@@ -45,7 +45,7 @@ router.get("/stream", async (req, res) => {
       passages = await queryVectors(embedding, 5);
     } catch (err) {
       console.warn(
-        "Vector query failed — continuing with empty context",
+        "Vector query failed - continuing with empty context",
         err.message
       );
     }

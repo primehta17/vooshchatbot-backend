@@ -11,7 +11,10 @@ app.use(bodyParser.json());
 const PORT = process.env.PORT || 7000;
 app.use(
   cors({
-    origin: "http://localhost:3000", // your frontend origin
+    origin: [
+      "http://localhost:3000",
+      "https://vooshchatbot-ul1d.onrender.com/",
+    ], // frontend origin
     credentials: true,
   })
 );
